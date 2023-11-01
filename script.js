@@ -1,19 +1,22 @@
-const links = [
-    { id: 'link1', target: '.header' },
-    { id: 'link2', target: '.header', instance: 1 },
-    { id: 'link3', target: '.column' }
-];
-
-links.forEach(linkInfo => {
-    const link = document.getElementById(linkInfo.id);
-    if (link) {
-        link.addEventListener('click', () => {
-            window.location.href = "mailto:fermanaliarpacik1@gmail.com";
-        });
+function scrollToElement(elementSelector, instance = 0) {
+    const elements = document.querySelectorAll(elementSelector);
+    if (elements.length > instance) {
+        elements[instance].scrollIntoView({ behavior: 'smooth' });
     }
+}
+
+const link1 = document.getElementById("link1");
+const link2 = document.getElementById("link2");
+const link3 = document.getElementById("link3");
+
+link1.addEventListener('click', () => {
+    scrollToElement('.header');
 });
 
+link2.addEventListener('click', () => {
+    scrollToElement('.header', 1);
+});
 
-document.getElementById("hireMeBtn").addEventListener('click', function() {
-    window.location.href = "mailto:fermanaliarpacik1@gmail.com";
+link3.addEventListener('click', () => {
+    scrollToElement('.column');
 });
